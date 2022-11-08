@@ -37,13 +37,15 @@ namespace Game.Core
             word = string.Empty;
 
             var result = _words.Count > 0;
+            if (result)
+            {
+                var count = _initialWords.Count;
+                var index = Random.Range(0, count);
             
-            var count = _initialWords.Count;
-            var index = Random.Range(0, count);
-            
-            word = _words[index];
-            _words.RemoveAt(index);
-            
+                word = _words[index];
+                _words.RemoveAt(index);
+            }
+
             return result;
         }
 
